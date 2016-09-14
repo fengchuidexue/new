@@ -21,10 +21,20 @@ class AdminModel extends Model{
 		  if($admin){
 		  	
 				if($admin['adminpad']==md5($password)){
-					
-					$_SESSION['id']=$admin['aid'];
-					$_SESSION['adminname']=$admin['adminname'];
-				     
+						$data = array(
+						  'aid'=>$admin['aid'],
+						  'logintime'=>time(),
+						  'loginip'=>get_client_ip()//获得方法用于获取客户端的IP地址
+						
+						 );
+						 
+						 
+						 $this->save($data);
+						 
+						
+						$_SESSION['id']=$admin['aid'];
+						$_SESSION['adminname']=$admin['adminname'];
+					     
 					
 				}else{
 					throw new  Exception('密码错误');

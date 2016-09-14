@@ -235,7 +235,7 @@ module.exports = function (grunt) {
       },
       distTemplate: {
         src: 'docs/template.html',
-        dest: 'dist/home.html'
+        dest: 'dist/index.html'
       },
       distVendorJS: {
         expand: true,

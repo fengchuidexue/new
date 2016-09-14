@@ -19,8 +19,7 @@ class LoginController extends Controller{
 				     $Admin->login();
 			     	 $this->success('登录成功',U('Index/index'));
 					} catch (Exception $e) {
-						
-					    $this->error($e->getMessage());
+						 $this->error($e->getMessage());
 					    
 					}
 				
@@ -34,6 +33,14 @@ class LoginController extends Controller{
 		}
 		
 	    $this->display();
+	}
+//	退出登录
+	public function logout(){
+		
+		 session_destroy();
+		 session_unset();
+		 $this->redirect('Login/index');
+	 
 	}
 	
 }

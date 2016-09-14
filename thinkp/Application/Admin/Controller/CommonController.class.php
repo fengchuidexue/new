@@ -1,16 +1,15 @@
 <?php namespace Admin\Controller;
 use Think\Controller;
-//公告控制器
 class CommonController extends Controller{
-	public function __construct(){
+//	_initialize方法是调用所有操作方法之前都会执行
+	public function _initialize(){
+	   
+	   if(!isset($_SESSION['id']) || !isset($_SESSION['adminname'])){
+	   	
+	        	$this->redirect('Login/index');
 		
-	 if(!isset($_SESSION['id'])){
-       	
-		$this->redirect('Login/index');
-       }
+	   }
 	}
-	
-	
 }
 
 
